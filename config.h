@@ -34,7 +34,7 @@ static const char*fonts[] = {
 static const Rule rules[] = {
     /* class          instance    title    tags mask  iscentered   isfloating   monitor */
     { "st-256color",  NULL,      0,             0,         1,           0,           -1 },
-    { 0,              NULL,      "x9term",      0,         0,           1,           -1 },
+    { 0,              NULL,      "draw",      0,         0,           1,           -1 },
     { 0,              NULL,      "floating-st", 0,         1,           1,           -1 },
     { "feh",          NULL,      0,             0,         1,           1,           -1 },
     { "mpv",          NULL,      0,             0,         1,           1,           -1 },
@@ -90,6 +90,7 @@ static Key keys[] = {
     /* -*-*-*-*-*-*-*- programs -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     { Mod4Mask,             XK_Return, spawn,        SH("tabbed -d -c -r 2 st -w ''") },
     { Mod4Mask|ShiftMask,   XK_Return, spawn,        { .v = term, }         },
+    { Mod4Mask,            XK_grave,  spawn,        SH("$HOME/bin/term-draw")         },
     { Mod4Mask,             XK_d,      spawn,        SH("rofi -show drun") },
     { Mod4Mask,             XK_n,      spawn,        SH("$HOME/bin/Theme-change") },
     { Mod4Mask,             XK_c,      spawn,        SH("$HOME/bin/rofi-clip")             },
@@ -111,23 +112,23 @@ static Key keys[] = {
     { Mod4Mask,            XK_Tab,    focusstack,    {.i = +1 } },
     { Mod4Mask|ShiftMask,  XK_Left,   setmfact,      {.f = -0.05} },
     { Mod4Mask|ShiftMask,  XK_Right,  setmfact,      {.f = +0.05} },
-    { Mod4Mask|ShiftMask,  XK_t,      setlayout,     {.v = &layouts[0]} },
-    { Mod4Mask|ShiftMask,  XK_f,      setlayout,     {.v = &layouts[1]} },
+    { Mod4Mask,            XK_t,      setlayout,     {.v = &layouts[0]} },
+    { Mod4Mask,            XK_s,      setlayout,     {.v = &layouts[1]} },
     { Mod4Mask|ShiftMask,  XK_m,      setlayout,     {.v = &layouts[2]} },
     { Mod4Mask,            XK_b,      togglebar,     {0} },
-    { Mod4Mask,            XK_s,      togglesticky,  {0} },
+    { Mod4Mask|ShiftMask,  XK_s,      togglesticky,  {0} },
     { Mod4Mask|ShiftMask,  XK_space,  togglefloating,{0} },
     { Mod4Mask,            XK_h,      rotatestack,   {.i = -1 } },
     { Mod4Mask,            XK_l,      rotatestack,   {.i = +1 } },
     { Mod4Mask,            XK_Tab,    view,          {0} },
     { Mod4Mask|ShiftMask,  XK_Escape, quit,          {0} },
-    { Mod4Mask|ShiftMask,  XK_r, quit,          {1} },
+    { Mod4Mask|ShiftMask,  XK_r,      quit,          {1} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     { Mod4Mask|ShiftMask,  XK_Up,     setsmfact,      {.f = +0.05} },
     { Mod4Mask|ShiftMask,  XK_Down,   setsmfact,      {.f = -0.05} },
     { Mod4Mask,            XK_g,      setgaps,        {.i = +4}    },
     { Mod4Mask|ShiftMask,  XK_g,      setgaps,        {.i = -4}    },
-    { 0,                   XK_F11,    togglefullscr,  {0} },
+    { Mod4Mask,            XK_f,      togglefullscr,  {0} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     TAGKEYS(XK_1,0) TAGKEYS(XK_2,1) TAGKEYS(XK_3,2) TAGKEYS(XK_4,3) 
     TAGKEYS(XK_5,4) TAGKEYS(XK_6,5) 
@@ -151,6 +152,6 @@ static const unsigned int minwsz = 20; /* min height of a client for smfact */
 /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
 static const float smfact     = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int resizehints  = 1;
-static const int focusonwheel = 1;
+static const int focusonwheel = 0;
 static const char scratchpadname[] = "scratchpad";
 static const int nmaster      = 1;

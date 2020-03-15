@@ -2,6 +2,7 @@
 
 + **added ewmh tags patch** to make polybar work 
 + **added Restartsig patch** to restart without killing the session
++ **added focusonclick patch** to switch focus only by mouse click
 + **changed almost all the keybindings** to make it comfortable for me
 
 
