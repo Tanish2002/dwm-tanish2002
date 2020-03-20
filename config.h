@@ -90,7 +90,7 @@ static Key keys[] = {
     /* -*-*-*-*-*-*-*- programs -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     { Mod4Mask,             XK_Return, spawn,        SH("tabbed -d -c -r 2 st -w ''") },
     { Mod4Mask|ShiftMask,   XK_Return, spawn,        { .v = term, }         },
-    { Mod4Mask,            XK_grave,  spawn,        SH("$HOME/bin/term-draw")         },
+    { Mod4Mask,             XK_grave,  spawn,        SH("$HOME/bin/term_draw")         },
     { Mod4Mask,             XK_d,      spawn,        SH("rofi -show drun") },
     { Mod4Mask,             XK_n,      spawn,        SH("$HOME/bin/Theme-change") },
     { Mod4Mask,             XK_c,      spawn,        SH("$HOME/bin/rofi-clip")             },
