@@ -26,32 +26,36 @@ static const int vertpadbar  = 12;         // vertical padding for statusbar
 static const int CORNER_RADIUS = 0;
 
 static const char*fonts[] = {
-    "ShureTechMono Nerd Font:size=10",
-    "RobotoMono Nerd Font Mono:size=10"
+    "FuraCode Nerd Font Mono:style=Bold:size=10",
+    "Hack Nerd Font Mono:size=10"
     /* "Terminus:size=8", */
 };
+
 
 static const Rule rules[] = {
     /* class          instance    title    tags mask  iscentered   isfloating   monitor */
     { "st-256color",  NULL,      0,             0,         1,           0,           -1 },
-    { 0,              NULL,      "draw",      0,         0,           1,           -1 },
+    { 0,              NULL,      "draw",        0,         0,           1,           -1 },
     { 0,              NULL,      "floating-st", 0,         1,           1,           -1 },
     { "feh",          NULL,      0,             0,         1,           1,           -1 },
     { "mpv",          NULL,      0,             0,         1,           1,           -1 },
     { "mupdf",        NULL,      0,             0,         1,           0,           -1 },
     { "MuPDF",        NULL,      0,             0,         1,           0,           -1 },
+    { "discord",      NULL,      0,        1 << 5,         0,           1,           -1 },
+
+
 
 };
 
 
-static const char norm_fg[] = "#d4ddda"; 
-static const char norm_bg[] = "#062C39"; 
+static const char norm_fg[] = "#D5D0C2"; 
+static const char norm_bg[] = "#3A3A3A"; 
 static const char norm_border[] = "#949a98";
-static const char sel_fg[] = "#d4ddda"; 
-static const char sel_bg[] = "#494262"; 
+static const char sel_fg[] = "#ffffff"; 
+static const char sel_bg[] = "#747474"; 
 static const char sel_border[] = "#d4ddda"; 
-static const char urg_fg[] = "#d4ddda"; 
-static const char urg_bg[] = "#45405F"; 
+static const char urg_fg[] = "#D5d0c2"; 
+static const char urg_bg[] = "#3a3a3a"; 
 static const char urg_border[] = "#45405F"; 
 static const char *colors[][3]      = { 
 /*               fg           bg         border                         */ 
@@ -139,8 +143,8 @@ static Key keys[] = {
 };
 
 static Button buttons[] = {
-    { ClkClientWin,         Mod4Mask,       Button1,        movemouse,      {0} },
-    { ClkClientWin,         Mod4Mask,       Button3,        resizemouse,    {0} },
+    { ClkClientWin,         Mod1Mask,       Button1,        movemouse,      {0} },
+    { ClkClientWin,         Mod1Mask,       Button3,        resizemouse,    {0} },
     { ClkRootWin,           0,              Button3,        spawn,          SH("x9term") },
 };
 
