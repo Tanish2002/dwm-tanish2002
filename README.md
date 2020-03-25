@@ -1,10 +1,11 @@
 # Changes
 
-+ **added ewmh tags patch** to make polybar work 
 + **added Restartsig patch** to restart without killing the session
 + **added focusonclick** to switch focus only by mouse click
++ **added xrdb patch** to load colors from Xresources
 + **changed almost all the keybindings** to make it comfortable for me
-
++ **removed urgent borders patch** as I don't need them
++ **removed warp patch** as it was annoying for me
 
 ## Installation 
 

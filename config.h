@@ -45,20 +45,20 @@ static const Rule rules[] = {
 };
 
 
-static const char norm_fg[] = "#d5d0c2"; 
-static const char norm_bg[] = "#3a3a3a"; 
-static const char norm_border[] = "#575757";
-static const char sel_fg[] = "#ffffff"; 
-static const char sel_bg[] = "#747474"; 
-static const char sel_border[] = "#3a3a3a"; 
-static const char urg_fg[] = "#d5d0c2"; 
-static const char urg_bg[] = "#3a3a3a"; 
-static const char urg_border[] = "#3a3a3a"; 
-static const char *colors[][3]      = { 
-/*               fg           bg         border                         */ 
-[SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins */
-[SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win */
-[SchemeUrg] =  { urg_fg,      urg_bg,    urg_border },
+/* Norm Colors */
+static char normbgcolor[]           = "#222222";
+static char normfgcolor[]           = "#bbbbbb";
+static char normbordercolor[]       = "#444444";
+
+/* Sel Colors */
+static char selbgcolor[]            = "#005577";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+
+static char *colors[][3] = {
+/*               fg           bg           border   */
+[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
@@ -124,6 +124,7 @@ static Key keys[] = {
     { MODKEY,            XK_h,                       rotatestack,   {.i = -1 } },
     { MODKEY,            XK_l,                       rotatestack,   {.i = +1 } },
 /*    { MODKEY,            XK_Tab,                     view,          {0} }, */
+    { MODKEY,            XK_F5,                      xrdb,          {.v = NULL } },
     { MODKEY|ShiftMask,  XK_Escape,                  quit,           {0} },
     { MODKEY|ShiftMask,  XK_r,                       quit,           {1} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
