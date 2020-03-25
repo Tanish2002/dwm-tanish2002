@@ -25,27 +25,21 @@ static const int vertpadbar  = 12;         // vertical padding for statusbar
 static const int CORNER_RADIUS = 0;
 
 static const char*fonts[] = {
-    "FuraCode Nerd Font Mono:style=Bold:size=10",
-    "Hack Nerd Font Mono:size=10"
+    "ShureTechMono Nerd Font:size=10",
+    "RobotoMono Nerd Font Mono:size=10"
     /* "Terminus:size=8", */
 };
-
 
 static const Rule rules[] = {
     /* class          instance    title    tags mask  iscentered   isfloating   monitor */
     { "st-256color",  NULL,      0,             0,         1,           0,           -1 },
-<<<<<<< HEAD
     { "tabbed",       NULL,      0,             0,         1,           0,           -1 },
     { 0,              NULL,      "x9term",      0,         0,           1,           -1 },
-=======
-    { 0,              NULL,      "draw",        0,         0,           1,           -1 },
->>>>>>> 9bd5a0f08acf2389b6e14ba567518423edb6b960
     { 0,              NULL,      "floating-st", 0,         1,           1,           -1 },
     { "feh",          NULL,      0,             0,         1,           1,           -1 },
     { "mpv",          NULL,      0,             0,         1,           1,           -1 },
     { "mupdf",        NULL,      0,             0,         1,           0,           -1 },
     { "MuPDF",        NULL,      0,             0,         1,           0,           -1 },
-<<<<<<< HEAD
     { "discord",      NULL,      0,        1 << 5,         1,           0,           -1 },
 };
 
@@ -59,24 +53,6 @@ static const char sel_border[] = "#3a3a3a";
 static const char urg_fg[] = "#d5d0c2"; 
 static const char urg_bg[] = "#3a3a3a"; 
 static const char urg_border[] = "#3a3a3a"; 
-=======
-    { "discord",      NULL,      0,        1 << 5,         0,           1,           -1 },
-
-
-
-};
-
-
-static const char norm_fg[] = "#D5D0C2"; 
-static const char norm_bg[] = "#3A3A3A"; 
-static const char norm_border[] = "#949a98";
-static const char sel_fg[] = "#ffffff"; 
-static const char sel_bg[] = "#747474"; 
-static const char sel_border[] = "#d4ddda"; 
-static const char urg_fg[] = "#D5d0c2"; 
-static const char urg_bg[] = "#3a3a3a"; 
-static const char urg_border[] = "#45405F"; 
->>>>>>> 9bd5a0f08acf2389b6e14ba567518423edb6b960
 static const char *colors[][3]      = { 
 /*               fg           bg         border                         */ 
 [SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins */
@@ -165,16 +141,10 @@ static Key keys[] = {
 };
 
 static Button buttons[] = {
-<<<<<<< HEAD
     { ClkClientWin,  MODKEY,  Button1, movemouse,   {0} },
     { ClkClientWin,  MODKEY,  Button3, resizemouse, {0} },
     { ClkRootWin,    0,       Button3, spawn,       SH("x9term") }, // p9 rio style terminal drawing
 	{ ClkTagBar,     0,       Button1,        view,           {0} },
-=======
-    { ClkClientWin,         Mod1Mask,       Button1,        movemouse,      {0} },
-    { ClkClientWin,         Mod1Mask,       Button3,        resizemouse,    {0} },
-    { ClkRootWin,           0,              Button3,        spawn,          SH("x9term") },
->>>>>>> 9bd5a0f08acf2389b6e14ba567518423edb6b960
 };
 
 static unsigned int gappx = GAPS_START;
