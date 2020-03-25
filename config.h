@@ -1,6 +1,6 @@
 /* -*--*-*-*-*-*-*-*-*- GAPS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
 #define GAPS_START 22
-#define BORDERPX_START 3
+#define BORDERPX_START 2
 /* -*-*-*-*-*-*-*-*-*- SMALL GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
 /* #define GAPS_START 8 */
 /* #define BORDERPX_START 1 */
@@ -41,6 +41,7 @@ static const Rule rules[] = {
     { "mupdf",        NULL,      0,             0,         1,           0,           -1 },
     { "MuPDF",        NULL,      0,             0,         1,           0,           -1 },
     { "discord",      NULL,      0,        1 << 5,         1,           0,           -1 },
+    { "Firefox",      NULL,      0,        1 << 0,         1,           0,           -1 },
 };
 
 
