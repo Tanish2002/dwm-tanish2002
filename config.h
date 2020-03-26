@@ -76,10 +76,13 @@ static const char *tags[] = { "", "", "", "", "", "ﭮ" };
 static const int showbar = 1;
 static const int topbar  = 1;
 static const float mfact = 0.5;
+#include "fibonacci.c"
 static const Layout layouts[] = {
-    { "|  ", tile },
+    { "|  " , tile },
     { "| 缾 ", NULL }, // floating
-    /* { "|  ", monocle }, */
+    { "|  ", monocle },
+    { "(@)",   spiral },
+    { "[\\]",  dwindle },
 };
 
 #define MODKEY Mod4Mask
@@ -116,8 +119,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  XK_Left,                    setmfact,      {.f = -0.05} },
     { MODKEY|ShiftMask,  XK_Right,                   setmfact,      {.f = +0.05} },
     { MODKEY|ShiftMask,  XK_t,                       setlayout,     {.v = &layouts[0]} },
-    { MODKEY|ShiftMask,  XK_s,                   setlayout,     {.v = &layouts[1]} },
-    /* { MODKEY,            XK_m,                       setlayout,     {.v = &layouts[2]} }, */
+    { MODKEY|ShiftMask,  XK_s,                       setlayout,     {.v = &layouts[1]} },
+    { MODKEY,            XK_m,                       setlayout,     {.v = &layouts[2]} },
+    { MODKEY|ShiftMask,  XK_f,                       setlayout,     {.v = &layouts[4]} },
     { MODKEY,            XK_b,                       togglebar,     {0} },
     { MODKEY|ShiftMask,  XK_space,                   togglesticky,  {0} },
     { MODKEY,            XK_s,                       togglefloating,{0} },
