@@ -1919,7 +1919,7 @@ tile(Monitor *m)
 		return;
 	if(n == 1){
  	        c = nexttiled(m->clients);
-		resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * m->gappx, m->wh - 2 * m->gappx, 0);
+		resize(c, m->wx + m->gappx, m->wy + m->gappx, m->ww - 2 * m->gappx, m->wh - 2 * m->gappx, 0);
 		return;
 	}
 

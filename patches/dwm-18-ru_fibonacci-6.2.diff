@@ -26,7 +26,7 @@ diff -upN a/fibonacci.c b/fibonacci.c
 +		return;
 +	if(n == 1){
 +		c = nexttiled(mon->clients);
-+		resize(c, mon->wx, mon->wy, mon->ww - 2 * c->bw, mon->wh - 2 * c->bw, 0);
++		resize(c, mon->wx + mon->gappx, mon->wy + mon->gappx, mon->ww - 2 * mon->gappx, mon->wh - 2 * mon->gappx, 0);
 +		return;
 +	}
 +	
