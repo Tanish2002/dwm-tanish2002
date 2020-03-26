@@ -112,18 +112,19 @@ static Key keys[] = {
     { MODKEY,            XK_space,                   togglescratch, SH("st -t scratchpad -g 68x18") },
     { MODKEY|ShiftMask,  XK_q,                       killclient,    {0} },
     { MODKEY,            XK_Tab,                     focusstack,    {.i = +1 } },
-/*    { MODKEY,            XK_k,                       focusstack,    {.i = -1 } }, */
+    /*    { MODKEY,            XK_k,                       focusstack,    {.i = -1 } }, */
     { MODKEY|ShiftMask,  XK_Left,                    setmfact,      {.f = -0.05} },
     { MODKEY|ShiftMask,  XK_Right,                   setmfact,      {.f = +0.05} },
-    { MODKEY,            XK_t,                       setlayout,     {.v = &layouts[0]} },
-    { MODKEY,            XK_s,                       setlayout,     {.v = &layouts[1]} },
+    { MODKEY|ShiftMask,  XK_t,                       setlayout,     {.v = &layouts[0]} },
+    { MODKEY|ShiftMask,  XK_s,                   setlayout,     {.v = &layouts[1]} },
     /* { MODKEY,            XK_m,                       setlayout,     {.v = &layouts[2]} }, */
     { MODKEY,            XK_b,                       togglebar,     {0} },
-    { MODKEY|ShiftMask,  XK_s,                       togglesticky,  {0} },
-    { MODKEY|ShiftMask,  XK_space,                   togglefloating,{0} },
+    { MODKEY|ShiftMask,  XK_space,                   togglesticky,  {0} },
+    { MODKEY,            XK_s,                       togglefloating,{0} },
+    { MODKEY,            XK_t,                       togglefloating,{0} },
     { MODKEY,            XK_Left,                    rotatestack,   {.i = -1 } },
     { MODKEY,            XK_Right,                   rotatestack,   {.i = +1 } },
-/*    { MODKEY,            XK_Tab,                     view,          {0} }, */
+    /*    { MODKEY,            XK_Tab,                     view,          {0} }, */
     { MODKEY,            XK_F5,                      xrdb,          {.v = NULL } },
     { MODKEY|ShiftMask,  XK_Escape,                  quit,          {0} },
     { MODKEY|ShiftMask,  XK_r,                       quit,          {1} },
