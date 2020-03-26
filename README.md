@@ -6,6 +6,7 @@
 + **changed almost all the keybindings** to make it comfortable for me
 + **removed urgent borders patch** as I don't need them
 + **removed warp patch** as it was annoying for me
++ **replaced attachabove patch with attachside**
 
 ## Installation 
 

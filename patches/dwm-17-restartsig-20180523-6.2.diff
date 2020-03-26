@@ -74,7 +74,7 @@ index bb95e26..286eecd 100644
  static void seturgent(Client *c, int urg);
  static void showhide(Client *c);
  static void sigchld(int unused);
-+static void sighup(int unused);
++static void sigusr(int unused);
 +static void sigterm(int unused);
  static void spawn(const Arg *arg);
  static void tag(const Arg *arg);
@@ -99,7 +99,7 @@ index bb95e26..286eecd 100644
  	/* clean up any zombies immediately */
  	sigchld(0);
  
-+	signal(SIGHUP, sighup);
++	signal(SIGUSR1, sigusr);
 +	signal(SIGTERM, sigterm);
 +
  	/* init screen */
@@ -109,7 +109,7 @@ index bb95e26..286eecd 100644
  }
  
  void
-+sighup(int unused)
++sigusr(int unused)
 +{
 +	Arg a = {.i = 1};
 +	quit(&a);
