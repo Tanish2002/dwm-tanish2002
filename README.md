@@ -7,6 +7,8 @@
 + **removed urgent borders patch** as I don't need them
 + **removed warp patch** as it was annoying for me
 + **replaced attachabove patch with attachside**
++ **replaced fullgaps with ru gaps**
++ **added fibonacci layouts patch**
 
 ## Installation 
 

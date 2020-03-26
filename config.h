@@ -133,8 +133,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  XK_Escape,                  quit,          {0} },
     { MODKEY|ShiftMask,  XK_r,                       quit,          {1} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    { MODKEY|ShiftMask,  XK_k,                      setsmfact,      {.f = +0.05} },
-    { MODKEY|ShiftMask,  XK_j,                      setsmfact,      {.f = -0.05} },
+ /*   { MODKEY|ShiftMask,  XK_k,                      setsmfact,      {.f = +0.05} }, */
+ /*   { MODKEY|ShiftMask,  XK_j,                      setsmfact,      {.f = -0.05} }, */
     { MODKEY,            XK_g,                      setgaps,        {.i = +4}    },
     { MODKEY|ShiftMask,  XK_g,                      setgaps,        {.i = -4}    },
     { MODKEY,            XK_f,                      togglefullscr,  {0} },
