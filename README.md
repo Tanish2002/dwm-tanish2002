@@ -21,7 +21,8 @@ sudo make install
 
 + **Check out [Mitchweaver's Repo](https://github.com/mitchweaver/suckless/tree/master/dwm)** (my fork is based on his).
 
-+ **All the patches are preapplied, if want to remove a patch they are loacated in the [`patches` Folder](patches)**
++ **All the patches are preapplied, if want to remove a patch they are loacated in the [`patches` Folder](patches)** use the patches in patches only folder
+as I have modified them
 
 + **Focusonclick is not patch** you can disable it by un-commenting `[EnterNotify] = enternotify,` in `dwm.c`
 

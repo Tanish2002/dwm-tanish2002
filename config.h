@@ -111,7 +111,7 @@ static Key keys[] = {
     /* -*-*-*-*-*-*-*- dwm commands -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     { MODKEY,            XK_space,                   togglescratch, SH("st -t scratchpad -g 68x18") },
     { MODKEY|ShiftMask,  XK_q,                       killclient,    {0} },
-    { MODKEY,            XK_Tab,                       focusstack,    {.i = +1 } },
+    { MODKEY,            XK_Tab,                     focusstack,    {.i = +1 } },
 /*    { MODKEY,            XK_k,                       focusstack,    {.i = -1 } }, */
     { MODKEY|ShiftMask,  XK_Left,                    setmfact,      {.f = -0.05} },
     { MODKEY|ShiftMask,  XK_Right,                   setmfact,      {.f = +0.05} },
@@ -119,19 +119,20 @@ static Key keys[] = {
     { MODKEY,            XK_s,                       setlayout,     {.v = &layouts[1]} },
     /* { MODKEY,            XK_m,                       setlayout,     {.v = &layouts[2]} }, */
     { MODKEY,            XK_b,                       togglebar,     {0} },
+    { MODKEY|ShiftMask,  XK_s,                       togglesticky,  {0} },
     { MODKEY|ShiftMask,  XK_space,                   togglefloating,{0} },
     { MODKEY,            XK_Left,                    rotatestack,   {.i = -1 } },
     { MODKEY,            XK_Right,                   rotatestack,   {.i = +1 } },
 /*    { MODKEY,            XK_Tab,                     view,          {0} }, */
     { MODKEY,            XK_F5,                      xrdb,          {.v = NULL } },
-    { MODKEY|ShiftMask,  XK_Escape,                  quit,           {0} },
-    { MODKEY|ShiftMask,  XK_r,                       quit,           {1} },
+    { MODKEY|ShiftMask,  XK_Escape,                  quit,          {0} },
+    { MODKEY|ShiftMask,  XK_r,                       quit,          {1} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    { MODKEY|ShiftMask,  XK_k,      setsmfact,      {.f = +0.05} },
-    { MODKEY|ShiftMask,  XK_j,      setsmfact,      {.f = -0.05} },
-    { MODKEY,            XK_g,      setgaps,        {.i = +4}    },
-    { MODKEY|ShiftMask,  XK_g,      setgaps,        {.i = -4}    },
-    { MODKEY,            XK_f,      togglefullscr,  {0} },
+    { MODKEY|ShiftMask,  XK_k,                      setsmfact,      {.f = +0.05} },
+    { MODKEY|ShiftMask,  XK_j,                      setsmfact,      {.f = -0.05} },
+    { MODKEY,            XK_g,                      setgaps,        {.i = +4}    },
+    { MODKEY|ShiftMask,  XK_g,                      setgaps,        {.i = -4}    },
+    { MODKEY,            XK_f,                      togglefullscr,  {0} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     TAGKEYS(XK_1,0) TAGKEYS(XK_2,1) TAGKEYS(XK_3,2) TAGKEYS(XK_4,3) 
     TAGKEYS(XK_5,4) TAGKEYS(XK_6,5) 
