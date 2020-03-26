@@ -78,11 +78,11 @@ static const int topbar  = 1;
 static const float mfact = 0.5;
 #include "fibonacci.c"
 static const Layout layouts[] = {
+    { "| 🌀 ", dwindle },
     { "|  " , tile },
     { "| 缾 ", NULL }, // floating
-    { "|  ", monocle },
-    { "(@)",   spiral },
-    { "[\\]",  dwindle },
+    { "|  " , monocle },
+    { "(@)"  , spiral },
 };
 
 #define MODKEY Mod4Mask
