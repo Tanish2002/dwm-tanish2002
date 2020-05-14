@@ -1,6 +1,6 @@
 /* -*--*-*-*-*-*-*-*-*- GAPS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
 #define GAPS_START 22
-#define BORDERPX_START 2
+#define BORDERPX_START 0
 /* -*-*-*-*-*-*-*-*-*- SMALL GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
 /* #define GAPS_START 8 */
 /* #define BORDERPX_START 1 */
@@ -10,10 +10,11 @@
 /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
 
 /* -*-*-*-*-*-*-*-*- FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-static const int vertpad     = GAPS_START - GAPS_START / 3; // vertical padding of bar
-static const int sidepad     = GAPS_START - GAPS_START / 3; // horizontal padding of bar
-static const int horizpadbar = 6;          // horizontal padding for statusbar
-static const int vertpadbar  = 12;         // vertical padding for statusbar
+static const int vertpad     = GAPS_START - GAPS_START / 3; // vertical padding of bar  
+/*static const int sidepad     = GAPS_START - GAPS_START / 3; // horizontal padding of bar */
+static const int sidepad     = 100;                          // horizontal padding of bar
+static const int horizpadbar = 8;          // horizontal padding for statusbar
+static const int vertpadbar  = 15;         // vertical padding for statusbar
 /* -*-*-*-*-*-*-*-* NON-FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*- */
 /* static const int vertpad     = 0; // vertical padding of bar */
 /* static const int sidepad     = 0; // horizontal padding of bar */
@@ -25,16 +26,16 @@ static const int vertpadbar  = 12;         // vertical padding for statusbar
 static const int CORNER_RADIUS = 0;
 
 static const char*fonts[] = {
-    "ShureTechMono Nerd Font:size=10",
-    "RobotoMono Nerd Font Mono:size=10"
+    "SpaceMono Nerd Font:size=10",
+    "FuraCode Mono Nerd Font Mono:size=10"
     /* "Terminus:size=8", */
 };
 
 static const Rule rules[] = {
     /* class          instance    title    tags mask  iscentered   isfloating   monitor */
-    { "st-256color",  NULL,      0,             0,         1,           0,           -1 },
-    { "tabbed",       NULL,      0,             0,         1,           0,           -1 },
-    { 0,              NULL,      "x9term",      0,         0,           1,           -1 },
+    { "st-256color",  NULL,      0,             0,         1,           0,           -1 }, 
+    { "tabbed",       NULL,      0,             0,         1,           0,           -1 }, 
+    { 0,              NULL,      "draw",        0,         1,           1,           -1 },
     { 0,              NULL,      "floating-st", 0,         1,           1,           -1 },
     { "feh",          NULL,      0,             0,         1,           1,           -1 },
     { "mpv",          NULL,      0,             0,         1,           1,           -1 },
@@ -69,7 +70,7 @@ static char *colors[][3] = {
  * "ﯙ", "", "", "", "", "", "", "", "", "", "", ""
  * "", "", "", "", "", "", "", "", "", "", "", ""
  */
-static const char *tags[] = { "", "", "", "", "", "ﭮ" };
+static const char *tags[] = { "", "", "ﮊ", "", "", "ﭮ" };
 /* static const char *tags[] = { "1","2","3","4","5","6" }; */
 /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
 
@@ -96,7 +97,7 @@ static Key keys[] = {
     /* -*-*-*-*-*-*-*- programs -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     { MODKEY,             XK_Return,                 spawn,         SH("tabbed -d -c -r 2 st -w ''") },
     { MODKEY|ShiftMask,   XK_Return,                 spawn,         { .v = term, }         },
-    { MODKEY,             XK_grave,                  spawn,         SH("$HOME/bin/term-draw")         },
+    { MODKEY,             XK_grave,                  spawn,         SH("$HOME/bin/term_draw")         },
     { MODKEY,             XK_d,                      spawn,         SH("rofi -show drun") },
     { MODKEY,             XK_n,                      spawn,         SH("$HOME/bin/Theme-change") },
     { MODKEY,             XK_c,                      spawn,         SH("$HOME/bin/rofi-clip") },
@@ -120,7 +121,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  XK_Right,                   setmfact,      {.f = +0.05} },
     { MODKEY|ShiftMask,  XK_t,                       setlayout,     {.v = &layouts[1]} },
     { MODKEY|ShiftMask,  XK_s,                       setlayout,     {.v = &layouts[2]} },
-    { MODKEY,            XK_m,                       setlayout,     {.v = &layouts[3]} },
+    { MODKEY|ShiftMask,  XK_m,                       setlayout,     {.v = &layouts[3]} },
     { MODKEY|ShiftMask,  XK_f,                       setlayout,     {.v = &layouts[0]} },
     { MODKEY,            XK_b,                       togglebar,     {0} },
     { MODKEY|ShiftMask,  XK_space,                   togglesticky,  {0} },
