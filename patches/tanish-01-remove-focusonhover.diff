@@ -1,0 +1,40 @@
+ diff --git a/dwm.c b/dwm.c
+index 0941a4350e39bd62e8e47b05992ea0a3ed84c32d..7eff3965a91b5da76d8af85d03f5b0ae758e6f01 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -194,7 +194,7 @@ static void drawbar(Monitor *m);
+ static void drawbars(void);
+ static void enqueue(Client *c);
+ static void enqueuestack(Client *c);
+-static void enternotify(XEvent *e);
++/*static void enternotify(XEvent *e); */
+ static void expose(XEvent *e);
+ static void focus(Client *c);
+ static void focusin(XEvent *e);
+@@ -292,7 +292,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
+ 	[ConfigureRequest] = configurerequest,
+ 	[ConfigureNotify] = configurenotify,
+ 	[DestroyNotify] = destroynotify,
+-	[EnterNotify] = enternotify,
++/*	[EnterNotify] = enternotify, */
+ 	[Expose] = expose,
+ 	[FocusIn] = focusin,
+ 	[Keyress] = keypress,
+@@ -848,7 +848,7 @@ enqueuestack(Client *c)
+ 	}
+ }
+ 
+-void
++/* void
+ enternotify(XEvent *e)
+ {
+ 	Client *c;
+@@ -866,7 +866,7 @@ enternotify(XEvent *e)
+ 		return;
+ 	focus(c);
+ }
+-
++*/
+ void
+ expose(XEvent *e)
+ {
