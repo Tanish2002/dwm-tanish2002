@@ -133,7 +133,8 @@ static Key keys[] = {
     { MODKEY,            XK_Right,                   rotatestack,   {.i = +1 } },
     /*    { MODKEY,            XK_Tab,                     view,          {0} }, */
     { MODKEY,            XK_F5,                      xrdb,          {.v = NULL } },
-    { MODKEY|ShiftMask,  XK_Escape,                  quit,          {0} },
+/*    { MODKEY|ShiftMask,  XK_Escape,                  quit,          {0} },*/
+    { MODKEY|ShiftMask,  XK_Escape,                  spawn,         SH("$HOME/bin/pm") },
     { MODKEY|ShiftMask,  XK_r,                       quit,          {1} },
     /* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
  /*   { MODKEY|ShiftMask,  XK_k,                      setsmfact,      {.f = +0.05} }, */
