@@ -1,20 +1,3 @@
-/* -*--*-*-*-*-*-*-*-*- GAPS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-#define GAPS_START 22
-#define BORDERPX_START 0
-/* -*-*-*-*-*-*-*-*-*- SMALL GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
-/* #define GAPS_START 8 */
-/* #define BORDERPX_START 1 */
-/* -*-*-*-*-*-*-*-*-*- NO GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
-/* #define GAPS_START 0 */
-/* #define BORDERPX_START 1 */
-/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-
-/* -*-*-*-*-*-*-*-*- FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-static const int vertpad     = GAPS_START - GAPS_START / 3; // vertical padding of bar  
-/*static const int sidepad     = GAPS_START - GAPS_START / 3; // horizontal padding of bar */
-static const int sidepad     = 100;                          // horizontal padding of bar
-static const int horizpadbar = 8;          // horizontal padding for statusbar
-static const int vertpadbar  = 15;         // vertical padding for statusbar
 /* -*-*-*-*-*-*-*-* NON-FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*- */
 /* static const int vertpad     = 0; // vertical padding of bar */
 /* static const int sidepad     = 0; // horizontal padding of bar */
