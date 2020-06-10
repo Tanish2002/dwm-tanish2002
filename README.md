@@ -1,14 +1,20 @@
 # Changes
 
 + **added Restartsig patch** to restart without killing the session
-+ **added focusonclick** to switch focus only by mouse click
++ **added focusonclick patch** to switch focus only by mouse click
 + **added xrdb patch** to load colors from Xresources
-+ **changed almost all the keybindings** to make it comfortable for me
-+ **removed urgent borders patch** as I don't need them
-+ **removed warp patch** as it was annoying for me
-+ **replaced attachabove patch with attachside**
-+ **replaced fullgaps with ru gaps**
++ **added attachside patch**
++ **added ru gaps patch**
++ **added actualfullscreen patch**
++ **added notitle patch**
++ **added dwmc patch**
++ **added safefloats patch**
++ **added Center patch**
++ **added sticky patch**
 + **added fibonacci layouts patch**
++ **more patches** in patches folder
+
++ **changed almost all the keybindings** to make it comfortable for me
 
 ## Installation 
 
@@ -21,12 +27,7 @@ sudo make install
 
 ## More Info
 
-+ **Check out [Mitchweaver's Repo](https://github.com/mitchweaver/suckless/tree/master/dwm)** (my fork is based on his).
-
-+ **All the patches are preapplied, if want to remove a patch they are loacated in the [`patches` Folder](patches)** use the patches in patches only folder
-as I have modified them
-
-+ **Focusonclick is not patch** you can disable it by un-commenting `[EnterNotify] = enternotify,` in `dwm.c`
++ **All the patches are preapplied, if want to remove a patch they are loacated in the [`patches` Folder](patches)** use the patches in `patches` folder only as I have modified them
 
 Enjoy!
 
