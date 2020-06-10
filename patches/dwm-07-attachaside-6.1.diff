@@ -1,5 +1,5 @@
 diff --git a/dwm.c b/dwm.c
-index ec6a27c..7b6ce67 100644
+index 0362114..be7e7a6 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -49,7 +49,8 @@
@@ -12,7 +12,7 @@ index ec6a27c..7b6ce67 100644
  #define LENGTH(X)               (sizeof X / sizeof X[0])
  #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
  #define WIDTH(X)                ((X)->w + 2 * (X)->bw)
-@@ -148,6 +149,7 @@ static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interac
+@@ -147,6 +148,7 @@ static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interac
  static void arrange(Monitor *m);
  static void arrangemon(Monitor *m);
  static void attach(Client *c);
@@ -28,26 +28,25 @@ index ec6a27c..7b6ce67 100644
  static Client *nexttiled(Client *c);
  static void pop(Client *);
  static void propertynotify(XEvent *e);
-@@ -407,6 +410,18 @@ attach(Client *c)
- 	c->mon->clients = c;
+@@ -406,6 +409,17 @@ attach(Client *c)
  }
  
-+void
+ void
 +attachaside(Client *c) {
 +	Client *at = nexttagged(c);
 +	if(!at) {
 +		attach(c);
 +		return;
-+		}
++ 	}
 +	c->next = at->next;
 +	at->next = c;
 +}
 +
-+
- void
++void
  attachstack(Client *c)
  {
-@@ -1063,7 +1078,7 @@ manage(Window w, XWindowAttributes *wa)
+ 	c->snext = c->mon->stack;
+@@ -1076,7 +1090,7 @@ manage(Window w, XWindowAttributes *wa)
  		c->isfloating = c->oldstate = trans != None || c->isfixed;
  	if (c->isfloating)
  		XRaiseWindow(dpy, c->win);
@@ -55,12 +54,11 @@ index ec6a27c..7b6ce67 100644
 +	attachaside(c);
  	attachstack(c);
  	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
- 		(unsigned char *) &(c->win), 1);
-@@ -1193,6 +1208,16 @@ movemouse(const Arg *arg)
- 	}
+ 	                (unsigned char *) &(c->win), 1);
+@@ -1210,6 +1224,16 @@ movemouse(const Arg *arg)
  }
  
-+ Client *
+ Client *
 +nexttagged(Client *c) {
 +	Client *walked = c->mon->clients;
 +	for(;
@@ -70,10 +68,11 @@ index ec6a27c..7b6ce67 100644
 +	return walked;
 +}
 +
- Client *
++Client *
  nexttiled(Client *c)
  {
-@@ -1418,7 +1443,7 @@ sendmon(Client *c, Monitor *m)
+ 	for (; c && (c->isfloating || !ISVISIBLE(c)); c = c->next);
+@@ -1434,7 +1458,7 @@ sendmon(Client *c, Monitor *m)
  	detachstack(c);
  	c->mon = m;
  	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
@@ -82,10 +81,11 @@ index ec6a27c..7b6ce67 100644
  	attachstack(c);
  	focus(NULL);
  	arrange(NULL);
-@@ -1899,6 +1924,7 @@ updategeom(void)
+@@ -1891,7 +1915,7 @@ updategeom(void)
+ 					m->clients = c->next;
  					detachstack(c);
  					c->mon = mons;
- 					attach(c);
+-					attach(c);
 +					attachaside(c);
  					attachstack(c);
  				}

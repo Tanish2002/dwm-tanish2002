@@ -1,3 +1,21 @@
+/* -*--*-*-*-*-*-*-*-*- GAPS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
+#define GAPS_START 22
+#define BORDERPX_START 0
+/* -*-*-*-*-*-*-*-*-*- SMALL GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+/* #define GAPS_START 8 */
+/* #define BORDERPX_START 1 */
+/* -*-*-*-*-*-*-*-*-*- NO GAPS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+/* #define GAPS_START 0 */
+/* #define BORDERPX_START 1 */
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
+
+/* -*-*-*-*-*-*-*-*- FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*-*-* */
+static const int vertpad     = GAPS_START - GAPS_START / 3; // vertical padding of bar  
+/*static const int sidepad     = GAPS_START - GAPS_START / 3; // horizontal padding of bar */
+static const int sidepad     = 100;                          // horizontal padding of bar
+static const int horizpadbar = 8;          // horizontal padding for statusbar
+static const int vertpadbar  = 15;         // vertical padding for statusbar
+static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 /* -*-*-*-*-*-*-*-* NON-FLOATING BAR -*-*-*-*-*-*-*-*-*-*-*-*- */
 /* static const int vertpad     = 0; // vertical padding of bar */
 /* static const int sidepad     = 0; // horizontal padding of bar */
@@ -96,7 +114,7 @@ static Key keys[] = {
     { 0,                  XF86XK_MonBrightnessUp,    spawn,         SH("xbacklight -inc 10")   },
     { 0,                  XF86XK_MonBrightnessDown,  spawn,         SH("xbacklight -dec 10")   },
     /* -*-*-*-*-*-*-*- dwm commands -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    { MODKEY,            XK_space,                   togglescratch, SH("st -t scratchpad -g 68x18") },
+/*    { MODKEY,            XK_space,                   togglescratch, SH("st -t scratchpad -g 68x18") }, */
     { MODKEY|ShiftMask,  XK_q,                       killclient,    {0} },
     { MODKEY,            XK_Tab,                     focusstack,    {.i = +1 } },
     /*    { MODKEY,            XK_k,                       focusstack,    {.i = -1 } }, */
@@ -107,6 +125,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,  XK_m,                       setlayout,     {.v = &layouts[3]} },
     { MODKEY|ShiftMask,  XK_f,                       setlayout,     {.v = &layouts[0]} },
     { MODKEY,            XK_b,                       togglebar,     {0} },
+    { MODKEY,            XK_z, 		     	     zoom,          {0} },
     { MODKEY|ShiftMask,  XK_space,                   togglesticky,  {0} },
     { MODKEY,            XK_s,                       togglefloating,{0} },
     { MODKEY,            XK_t,                       togglefloating,{0} },
@@ -134,12 +153,14 @@ static Key keys[] = {
 static Button buttons[] = {
     { ClkClientWin,  MODKEY,  Button1, movemouse,   {0} },
     { ClkClientWin,  MODKEY,  Button3, resizemouse, {0} },
+    { ClkClientWin,  MODKEY,  Button1, rotatestack, {.i = +1 } },  
     { ClkRootWin,    0,       Button3, spawn,       SH("x9term") }, // p9 rio style terminal drawing
-	{ ClkTagBar,     0,       Button1,        view,           {0} },
+    { ClkTagBar,     0,       Button1,        view,           {0} },
 };
 
 static unsigned int gappx = GAPS_START;
 static unsigned int borderpx = BORDERPX_START;
+static const unsigned int snap      = 32;       /* snap pixel */
 
 static const unsigned int minwsz = 20; /* min height of a client for smfact */
 
@@ -149,3 +170,74 @@ static const int resizehints  = 1;
 static const int focusonwheel = 1;
 static const char scratchpadname[] = "scratchpad";
 static const int nmaster      = 1;
+
+void
+setlayoutex(const Arg *arg)
+{
+	setlayout(&((Arg) { .v = &layouts[arg->i] }));
+}
+
+void
+viewex(const Arg *arg)
+{
+	view(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+viewall(const Arg *arg)
+{
+	view(&((Arg){.ui = ~0}));
+}
+
+void
+toggleviewex(const Arg *arg)
+{
+	toggleview(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+tagex(const Arg *arg)
+{
+	tag(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+toggletagex(const Arg *arg)
+{
+	toggletag(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+tagall(const Arg *arg)
+{
+	tag(&((Arg){.ui = ~0}));
+}
+
+/* signal definitions */
+/* signum must be greater than 0 */
+/* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
+static Signal signals[] = {
+	/* signum           function */
+	{ "focusstack",     focusstack },
+	{ "setmfact",       setmfact },
+	{ "togglebar",      togglebar },
+	{ "incnmaster",     incnmaster },
+	{ "togglefloating", togglefloating },
+	{ "focusmon",       focusmon },
+	{ "tagmon",         tagmon },
+	{ "zoom",           zoom },
+	{ "view",           view },
+	{ "viewall",        viewall },
+	{ "viewex",         viewex },
+	{ "toggleview",     view },
+	{ "toggleviewex",   toggleviewex },
+	{ "tag",            tag },
+	{ "tagall",         tagall },
+	{ "tagex",          tagex },
+	{ "toggletag",      tag },
+	{ "toggletagex",    toggletagex },
+	{ "killclient",     killclient },
+	{ "quit",           quit },
+	{ "setlayout",      setlayout },
+	{ "setlayoutex",    setlayoutex },
+};

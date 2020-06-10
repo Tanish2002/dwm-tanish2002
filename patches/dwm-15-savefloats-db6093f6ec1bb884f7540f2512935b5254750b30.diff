@@ -1,6 +1,6 @@
 --- dwm/dwm.c
 +++ dwm/dwm.c
-@@ -88,6 +88,7 @@ struct Client {
+@@ -105,6 +105,7 @@
  	char name[256];
  	float mina, maxa;
  	int x, y, w, h;
@@ -8,10 +8,10 @@
  	int oldx, oldy, oldw, oldh;
  	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
  	int bw, oldbw;
-@@ -1056,6 +1057,10 @@ manage(Window w, XWindowAttributes *wa)
- 	updatewindowtype(c);
- 	updatesizehints(c);
- 	updatewmhints(c);
+@@ -1202,6 +1203,10 @@
+ 		c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
+ 		c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
+ 	}
 +	c->sfx = c->x;
 +	c->sfy = c->y;
 +	c->sfw = c->w;
@@ -19,7 +19,7 @@
  	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
  	grabbuttons(c, 0);
  	if (!c->isfloating)
-@@ -1714,8 +1719,16 @@ togglefloating(const Arg *arg)
+@@ -1965,8 +1970,16 @@
  		return;
  	selmon->sel->isfloating = !selmon->sel->isfloating || selmon->sel->isfixed;
  	if (selmon->sel->isfloating)
@@ -37,3 +37,4 @@
 +	}
  	arrange(selmon);
  }
+ 

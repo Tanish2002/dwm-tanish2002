@@ -26,7 +26,7 @@ kill -TERM dwmpid
  dwm.c        | 22 ++++++++++++++++++++++
  3 files changed, 33 insertions(+)
 
-diff --git a/config.def.h b/config.def.h
+diff --git a/config.def.h b/conig.def.h
 index a9ac303..e559429 100644
 --- a/config.def.h
 +++ b/config.def.h
@@ -136,4 +136,3 @@ index bb95e26..286eecd 100644
  	return EXIT_SUCCESS;
 -- 
 2.7.4
-
