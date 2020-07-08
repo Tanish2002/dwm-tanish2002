@@ -101,7 +101,8 @@ static Key keys[] = {
     { MODKEY,             XK_grave,                  spawn,         SH("$HOME/bin/term_draw")         },
     { MODKEY,             XK_d,                      spawn,         SH("rofi -show drun") },
     { MODKEY,             XK_n,                      spawn,         SH("$HOME/bin/Theme-change") },
-    { MODKEY,             XK_c,                      spawn,         SH("$HOME/bin/rofi-clip") },
+    { MODKEY,             XK_e,                      spawn,         SH("$HOME/bin/rofi-emoji") },
+	{ MODKEY,             XK_c,                      spawn,         SH("$HOME/bin/rofi-clip") },
     { MODKEY,             XK_m,                      spawn,         SH("$HOME/bin/rofi_mpvtube") },
     { 0,                  XK_Print,                  spawn,         SH("$HOME/bin/screenshot-menu.sh")             },
     /* -*-*-*-*-*-*-*- media control -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
