@@ -155,7 +155,6 @@ static Key keys[] = {
 static Button buttons[] = {
     { ClkClientWin,  MODKEY,  Button1, movemouse,   {0} },
     { ClkClientWin,  MODKEY,  Button3, resizemouse, {0} },
-    { ClkClientWin,  MODKEY,  Button1, rotatestack, {.i = +1 } },  
     { ClkRootWin,    0,       Button3, spawn,       SH("x9term") }, // p9 rio style terminal drawing
     { ClkTagBar,     0,       Button1,        view,           {0} },
 };
